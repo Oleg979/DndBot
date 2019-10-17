@@ -59,8 +59,9 @@ bot.onText(/создать кампанию (.+)/, async (msg, match) => {
 bot.onText(/добавить карту (.+)/, async (msg, match) => {
   var fromId = msg.chat.id;
   var chat = await Chat.findOne({ chatId: fromId });
-  chat.map = match[1];
-  await chat.save();
+  var game = await Game.findById(chat.gameId);
+  game.map = match[1];
+  await game.save();
   bot.sendMessage(fromId, `Карта добавлена.`);
 });
 
