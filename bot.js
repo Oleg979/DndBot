@@ -56,7 +56,7 @@ bot.onText(/создать кампанию (.+)/, async (msg, match) => {
   }
 });
 
-bot.onText(/добавить карту/, async (msg, match) => {
+bot.onText(/добавить карту/, (msg, match) => {
   var fromId = msg.chat.id;
   var photo = msg.photo[0].file_id;
   console.log(photo);
