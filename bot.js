@@ -28,7 +28,7 @@ bot.onText(/карт(а|у|е|ой)/, async (msg, match) => {
 
 bot.onText(/создать кампанию (.+)/, async (msg, match) => {
   var fromId = msg.chat.id;
-  var chat = await Chat.findById(fromId);
+  var chat = await Chat.findOne({ chatId: fromId });
   if (!chat) {
     var game = await Game.create({
       title: match[0]
