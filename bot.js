@@ -31,7 +31,7 @@ bot.onText(/создать кампанию (.+)/, async (msg, match) => {
   var chat = await Chat.findOne({ chatId: fromId });
   if (!chat) {
     var game = await Game.create({
-      title: match[0]
+      title: match[1]
     });
     await Chat.create({
       chatId: fromId,
@@ -47,13 +47,19 @@ bot.onText(/создать кампанию (.+)/, async (msg, match) => {
       );
     } else {
       var game = await Game.create({
-        title: match[0]
+        title: match[1]
       });
       chat.gameId = game._id;
       await chat.save();
       bot.sendMessage(fromId, `Кампания создана и привязана к чату.`);
     }
   }
+});
+
+bot.onText(/добавить карту/, async (msg, match) => {
+  var fromId = msg.chat.id;
+  var photo = msg.photo[0].file_id;
+  console.log(photo);
 });
 
 module.exports = bot;
