@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 var ChatSchema = new mongoose.Schema({
-  gameId: ObjectId,
+  gameId: mongoose.Types.ObjectId,
   chatId: String
 });
 mongoose.model("Chat", ChatSchema);
