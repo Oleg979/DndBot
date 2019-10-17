@@ -1,0 +1,16 @@
+{
+  "name": "DndBot",
+  "version": "1.0.0",
+  "description": "assistand for DnD",
+  "main": "index.js",
+  "author": "oleg979",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "https-proxy-agent": "^3.0.0",
+    "node-telegram-bot-api": "^0.40.0",
+    "telegraf": "^3.33.0"
+  }
+}
