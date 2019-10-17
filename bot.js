@@ -15,3 +15,5 @@ bot.onText(/d(.+) (.+)/, function(msg, match) {
       .join("")}`
   );
 });
+
+module.exports = bot;
