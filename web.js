@@ -5,6 +5,14 @@ const packageInfo = require("./package.json");
 const app = express();
 app.use(bodyParser.json());
 
+var mongoose = require("mongoose");
+mongoose
+  .connect("mongodb://admin:123456A@ds137008.mlab.com:37008/dnd", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => console.log("Connected to db"));
+
 app.get("/", function(req, res) {
   res.json({ version: packageInfo.version });
 });

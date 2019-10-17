@@ -1,6 +1,10 @@
 var mongoose = require("mongoose");
 var GameSchema = new mongoose.Schema({
-  title: String
+  title: String,
+  map: {
+    type: String,
+    default: ""
+  }
 });
 mongoose.model("Game", GameSchema);
 
