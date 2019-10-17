@@ -56,10 +56,12 @@ bot.onText(/создать кампанию (.+)/, async (msg, match) => {
   }
 });
 
-bot.onText(/добавить карту/, (msg, match) => {
+bot.onText(/добавить карту (.+)/, async (msg, match) => {
   var fromId = msg.chat.id;
-  var photo = msg.photo[0].file_id;
-  console.log(photo);
+  var chat = await Chat.findOne({ chatId: fromId });
+  chat.map = match[1];
+  await chat.save();
+  bot.sendMessage(fromId, `Карта добавлена.`);
 });
 
 module.exports = bot;
