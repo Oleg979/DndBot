@@ -6,7 +6,8 @@
   "author": "oleg979",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "dependencies": {
     "https-proxy-agent": "^3.0.0",
