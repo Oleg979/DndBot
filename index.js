@@ -4,7 +4,7 @@ var bot = new TelegramBot(token, { polling: true });
 
 var rollDice = require("./services/rollService");
 
-bot.onText(/\/d(.+) (.+)/, function(msg, match) {
+bot.onText(/d(.+) (.+)/, function(msg, match) {
   var fromId = msg.from.id;
   var edges = match[1];
   var times = match[2];
