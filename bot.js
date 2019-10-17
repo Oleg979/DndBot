@@ -16,4 +16,10 @@ bot.onText(/d(.+) (.+)/, function(msg, match) {
   );
 });
 
+bot.onText(/карта/, function(msg, match) {
+  var fromId = msg.chat.id;
+
+  bot.sendPhoto(fromId, "http://i040.radikal.ru/0803/93/b42fd7ee822c.jpg");
+});
+
 module.exports = bot;
