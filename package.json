@@ -1,7 +1,7 @@
 {
   "name": "DndBot",
   "version": "1.0.0",
-  "description": "assistand for DnD",
+  "description": "assistant for DnD",
   "main": "index.js",
   "author": "oleg979",
   "license": "MIT",
