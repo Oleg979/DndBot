@@ -20,10 +20,12 @@ bot.onText(/d(.+) (.+)/, (msg, match) => {
 bot.onText(/карт(а|у|е|ой)/, async (msg, match) => {
   var fromId = msg.chat.id;
   var chat = await Chat.findById(fromId);
+  console.log(chat);
   var gameId = chat.gameId;
   var game = await Game.findById(gameId);
+  console.log(game);
   var map = game.map;
-  console.log(map)
+  console.log(map);
   bot.sendPhoto(fromId, map);
 });
 
