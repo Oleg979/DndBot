@@ -23,6 +23,7 @@ bot.onText(/карт(а|у|е|ой)/, async (msg, match) => {
   var gameId = chat.gameId;
   var game = await Game.findById(gameId);
   var map = game.map;
+  console.log(map)
   bot.sendPhoto(fromId, map);
 });
 
