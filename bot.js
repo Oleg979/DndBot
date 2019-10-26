@@ -17,7 +17,7 @@ bot.onText(/d(.+) (.+)/, (msg, match) => {
   );
 });
 
-bot.onText(/карт(а|у|е|ой)/, async (msg, match) => {
+bot.onText(/(к|К)арт(а|у|е|ой)/, async (msg, match) => {
   var fromId = msg.chat.id;
   var chat = await Chat.findOne({ chatId: fromId });
   console.log(chat);
@@ -29,7 +29,7 @@ bot.onText(/карт(а|у|е|ой)/, async (msg, match) => {
   bot.sendPhoto(fromId, map);
 });
 
-bot.onText(/создать кампанию (.+)/, async (msg, match) => {
+bot.onText(/(с|С)оздать кампанию (.+)/, async (msg, match) => {
   var fromId = msg.chat.id;
   var chat = await Chat.findOne({ chatId: fromId });
   if (!chat) {
@@ -59,7 +59,7 @@ bot.onText(/создать кампанию (.+)/, async (msg, match) => {
   }
 });
 
-bot.onText(/добавить карту (.+)/, async (msg, match) => {
+bot.onText(/(д|Д)обавить карту (.+)/, async (msg, match) => {
   var fromId = msg.chat.id;
   var chat = await Chat.findOne({ chatId: fromId });
   var game = await Game.findById(chat.gameId);
