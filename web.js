@@ -1,7 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import { name, description, version, author } from "./package.json";
-import db from "./src/models/dbStarter";
+import db from "./src/helpers/db.starter";
 
 db.sync({ force: false })
   .then(() => {
