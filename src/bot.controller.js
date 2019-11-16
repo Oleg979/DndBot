@@ -55,6 +55,7 @@ bot.onText(/(с|С)оздать кампанию (.+)/, async (msg, match) => {
 
 bot.onText(/(д|Д)обавить карту (.+)/, async (msg, match) => {
   const photoId = msg.photo[0].file_id;
+  console.log(photoId);
   const fromId = msg.chat.id;
   let game = await Game.findOne({ where: { chatId: fromId } });
   await Game.update(
