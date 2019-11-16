@@ -1,2 +1,3 @@
-var bot = require('./bot');
-require('./web')(bot);
+import bot from "./src/bot";
+import start from "./web";
+start(bot);

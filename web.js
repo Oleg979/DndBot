@@ -1,30 +1,30 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const packageInfo = require("./package.json");
+import express from "express";
+import bodyParser from "body-parser";
+import { name, description, version, author } from "./package.json";
+import db from "./src/models/dbStarter";
+
+db.sync({ force: false })
+  .then(() => {
+    console.log("Tables have been created");
+  })
+  .catch(err => console.log(err));
 
 const app = express();
 app.use(bodyParser.json());
 
-var mongoose = require("mongoose");
-mongoose
-  .connect("mongodb://admin:123456A@ds137008.mlab.com:37008/dnd", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then(() => console.log("Connected to db"));
-
-app.get("/", function(req, res) {
-  res.json({ version: packageInfo.version });
+app.get("/", (req, res) => {
+  res.json({ name, description, version, author });
 });
 
-var server = app.listen(process.env.PORT || 3000, "0.0.0.0", () => {
+const server = app.listen(process.env.PORT || 3000, "0.0.0.0", () => {
   const host = server.address().address;
   const port = server.address().port;
-  console.log("Web server started at http://%s:%s", host, port);
+  console.log(`Web server started at http://${host}:${port}`);
 });
 
-module.exports = bot => {
+export default bot => {
   app.post("/" + bot.token, (req, res) => {
+    console.log(req);
     bot.processUpdate(req.body);
     res.sendStatus(200);
   });
